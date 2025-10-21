@@ -1,0 +1,98 @@
+PROPÓSITO 
+Actúa como scout de mercado local.A partir de la “tabla_novedades” (Paso 1), identifica NECESIDADES REALES que supongan oportunidades de negocio, distinguiendo síntomas de causas, agrupando patrones y priorizando en función de impacto, urgencia y viabilidad de acceso. No propongas soluciones ni proveedores.
+
+ENTRADAS (completar antes de ejecutar)
+- fecha_de_hoy: {AAAA-MM-DD} (Europe/Madrid)
+- región_foco: Málaga; si insuficiente, ampliar Andalucía
+- sectores_foco (opcional): {lista}
+- umbral_prioridad_min: {1–5} (p.ej., 3)
+- umbral_confianza_min: {Alta|Media} (p.ej., Media)
+- max_oportunidades: {10–15} (p.ej., 12)
+- tabla_novedades: (pegar aquí la tabla del Paso 1 con columnas incl. Empresa, Web, Tipo de señal, Fecha, Evidencia breve, KPI, Trigger, Dueño probable, Prioridad, Confianza, Sector, Tamaño, Sede)
+- tabla_necesidades_anterior (opcional): para delta y changelog
+
+DEFINICIONES CLAVE
+- Necesidad Real (NR): tensión persistente ligada a un KPI del negocio, con TRIGGER identificado en ≤90 días, OWNER con capacidad presupuestaria y evidencias recientes en la empresa (no deseos vagos).
+- Síntoma: indicio superficial que no explica la causa (p.ej., “malas reseñas” sin atribuir a logística/soporte/capacidad).
+- Señal aceptable: oferta de empleo, cambio directivo, expansión, reseñas, regulación/auditoría, picos estacionales/eventos con fecha concreta.
+
+CRITERIOS PARA “NECESIDAD REAL”
+Marca como NR si cumple ≥4:
+1) KPI crítico afectado (margen, NPS, rotación, SLA, conversión, EBITDA).
+2) Trigger actual (0–3 meses).
+3) Evidencia fechada (≤90 días; máximo 180 con marca “señal antigua”).
+4) Dueño probable con presupuesto (CFO/COO/CHRO/Dir. Oper./Marketing/IT).
+5) Accesibilidad razonable (rol identificable para contacto).
+
+PROCESO
+1) Normaliza y deduplica por dominio Web. Descarta duplicados de grupo (>3 por grupo).
+2) Etiqueta cada fila: {Síntoma | Necesidad probable | Necesidad confirmable}.
+3) Agrupa por patrones de necesidad (usa etiquetas como: OPERACIONES_CAPACIDAD, CX_POSTVENTA, COMPLIANCE_ESG, TALENTO_ADQUISICIÓN/RETENCIÓN, GO_TO_MARKET_EXPANSIÓN, DATOS_ANALÍTICA, TECNOLOGÍA_AUTOMATIZACIÓN, FINANZAS_CONTROL).
+4) Para cada patrón, formula en 1 frase la “NECESIDAD” como trabajo por hacer (JTBD): “Necesitan {resultado} para {impacto} porque {trigger}.”
+5) Puntúa cada caso (0–100) con:
+   - Severidad KPI (0–30)
+   - Urgencia 0–3 meses (0–25)
+   - Presupuesto probable del Owner (0–20)
+   - Accesibilidad/contactabilidad (0–15)
+   - Recencia de la evidencia (0–10)
+   → Score_Oportunidad = suma. Muestra pesos aplicados.
+6) Identifica “confusores” (explicaciones alternativas) y “riesgos de falso positivo”.
+7) Aplica umbrales (prioridad/confianza) y selecciona Top {max_oportunidades}.
+8) Si hay tabla_necesidades_anterior, genera CHANGES: {NUEVA | SUBE | BAJA | RESUELTA | SIN CAMBIO} por necesidad/patrón.
+
+SALIDA (en este orden)
+A) Resumen ejecutivo (≤8 bullets)
+   - Nº patrones detectados, top 3 con mayor #empresas
+   - KPIs más afectados y % aproximado
+   - Triggers más frecuentes (top 5)
+   - Distribución por tamaño (pyme/mid-market/enterprise)
+B) Mapa de patrones de necesidad (tabla breve)
+   Columnas: Patrón · Descripción (1 frase JTBD) · #Empresas · Sectores dominantes · KPI centrales · Owner habitual
+C) Tabla de Oportunidades Priorizadas (Top {max_oportunidades})
+   Columnas:
+   - Necesidad (frase JTBD, concreta y medible)
+   - Patrón
+   - Empresas involucradas (máx. 3 ejemplos, dominio)
+   - Evidencias (3–4 bullets, 10–14 palabras c/u + fecha AAAA-MM-DD)
+   - KPI afectado principal (y secundario si aplica)
+   - Trigger (1 línea)
+   - Dueño de presupuesto probable (rol)
+   - Score_Oportunidad (0–100) [muestra desglose]
+   - Urgencia (0–3m / 3–6m / >6m)
+   - Confianza (Alta/Media/Baja)
+   - Riesgos/Confusores (2 bullets)
+   - Descalificadores rápidos (3 bullets, p.ej., “ticket < X€”, “sin equipo interno”)
+D) Preguntas de descubrimiento para validar (por patrón, 6–8 preguntas)
+   - Enfocadas a KPI, restricciones, proceso actual, costes de inacción y timing.
+E) Changelog vs. tabla_necesidades_anterior (si se aporta)
+   - {Patrón/Necesidad} — {cambio} — {motivo} — {fecha}
+F) Anexos breves
+   - Glosario de etiquetas de patrón
+   - Reglas usadas para distinguir síntoma vs. necesidad
+
+REGLAS DE REDACCIÓN
+- Sin soluciones, sin features, sin proveedores.
+- No enlaces; usa paráfrasis con fechas.
+- Lenguaje claro, específico y accionable; evita buzzwords.
+- Si la evidencia >180 días, marca “señal antigua” y reduce peso de Recencia.
+- Si faltan datos para asumir Owner/KPI, declara supuestos explícitos y marca Confianza=Baja.
+
+FORMATO
+- Secciones A–F en markdown.
+- Tablas en formato markdown; valores concisos.
+- Fechas en AAAA-MM-DD (Europe/Madrid).
+- Español (España).
+
+MODO OPCIONAL
+- modo_json:{sí/no}. Si “sí”, además del markdown, entrega un JSON final con:
+  {
+    "resumen": {...},
+    "patrones": [{patrón, descripcion, empresas, kpis, owner}],
+    "oportunidades": [{
+        "necesidad","patrón","empresas":["dominio1","dominio2"],"evidencias":[{texto,fecha}],
+        "kpi_principal","trigger","owner","score":{"total":_, "severidad":_, "urgencia":_, "presupuesto":_, "acceso":_, "recencia":_},
+        "urgencia","confianza","riesgos":[...],"descalificadores":[...]
+    }],
+    "preguntas_por_patron": {"PATRÓN":[...]},
+    "changelog":[...]
+  }
