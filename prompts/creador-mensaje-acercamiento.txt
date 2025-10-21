@@ -50,7 +50,7 @@ B) **Mensaje principal** (según `canal_salida`, tono natural y persuasivo)
    - Email: 110–150 palabras + **3 asuntos** alternativos (claros y orientados a valor)
    - Nota de conexión: ≤280 caracteres
    - X DM: ≤240 caracteres
-   - Incluye **slots** formateados (ej.: “J 10:00, V 12:30, L 16:45 (Europe/Madrid)”)
+   - Incluye **slots** formateados (ej.: “jueves a las 10:00, viernes a las 12:30 o el lunes a las 16:45 (hora Madrid)”)
 C) **Variante B** (texto alternativo)
 D) **Seguimiento por EMAIL (si no responde en 3–5 días)**
    - Asunto (1 opción) + cuerpo (80–120 palabras), estilo copywriter:
@@ -63,14 +63,14 @@ D) **Seguimiento por EMAIL (si no responde en 3–5 días)**
 PLANTILLAS (el generador debe ADAPTARLAS, no pegarlas literales)
 
 — LinkedIn DM (400–650 caracteres)
-Hola {persona_nombre}, vi tu {post/hito} del {fecha} sobre {tema} y me llamó la atención {detalle}. Con un grupo de estudiantes estamos **construyendo** una guía práctica para mejorar {KPI_inferido}. En {empresa} hemos visto una **posible necesidad**: “{necesidad_potencial_detectada}”{si evidencia_origen -> “ ({evidencia_origen})”}. Me gustaría **comprender** cómo lo estáis abordando y compartir un {valor_30min}. ¿Te encaja 30’ {slot1} o {slot2}? Alternativa: {slot3}. Puedo enviarte un 1-pager previo.
+Hola {persona_nombre}, vi tu {post/hito} del {fecha} sobre {tema} y me llamó la atención {detalle}. Con un grupo de estudiantes estamos **construyendo** una guía práctica para mejorar {KPI_inferido}. En {empresa} hemos visto una **posible necesidad**: “{necesidad_potencial_detectada}”{si evidencia_origen -> “ ({evidencia_origen})”}. Me gustaría **comprender** cómo lo estáis abordando y compartir un {valor_30min}. ¿Te encaja 30’ {slot1} o {slot2}? Alternativa: {slot3}. 
 
 — Email (110–150 palabras) + 3 asuntos
 Asunto 1: 30’ para contrastar {KPI_inferido} en {empresa}
 Asunto 2: {persona_nombre}, vi tu {post/hito}: idea rápida sobre {tema/KPI}
 Asunto 3: Mini-benchmark local para {KPI_inferido} — ¿lo vemos 30’?
 Hola {persona_nombre},
-Leí tu {post/hito} del {fecha} sobre {tema} y me interesó {detalle}. Con un grupo de estudiantes estamos **desarrollando** una guía ligera para mejorar {KPI_inferido}. En {empresa} identificamos una **necesidad potencial**: “{necesidad_potencial_detectada}”{si evidencia_origen -> “ ({evidencia_origen})”}. Me gustaría **comprender** vuestro contexto y compartir un {valor_30min}. ¿Te encaja {slot1} o {slot2}? Alternativa: {slot3}. Si te ayuda, te envío antes un 1-pager con los patrones locales.
+Leí tu {post/hito} del {fecha} sobre {tema} y me interesó {detalle}. Con un grupo de estudiantes estamos **desarrollando** una guía ligera para mejorar {KPI_inferido}. En {empresa} identificamos una **necesidad potencial**: “{necesidad_potencial_detectada}”{si evidencia_origen -> “ ({evidencia_origen})”}. Me gustaría **comprender** vuestro contexto y compartir un {valor_30min}. ¿Te encaja {slot1} o {slot2}? Alternativa: {slot3}. 
 Gracias,
 {tu_nombre · estudiante universitario | contacto}
 
@@ -83,7 +83,7 @@ Vi {gancho} ({fecha}). Con un grupo de estudiantes construimos una guía para {K
 — Seguimiento por EMAIL (80–120 palabras)
 Asunto: ¿Avanzamos con {KPI_inferido} en {empresa}?
 Hola {persona_nombre},
-Te escribo por si podemos **comprender** mejor el contexto. Desde que te contacté vimos {micro-insight verificable} y encaja con la **necesidad** (“{necesidad_potencial_detectada}”). En **30’** puedo compartirte un par de **comparativas locales** útiles para decidir próximos pasos. ¿Te encaja {nuevo_slot1} o {nuevo_slot2}? Si prefieres, te envío antes un 1-pager para revisarlo cuando te venga bien.
+Te escribo por si podemos **comprender** mejor el contexto. Desde que te contacté vimos {micro-insight verificable} y encaja con la **necesidad** (“{necesidad_potencial_detectada}”). En **30’** puedo compartirte un par de **comparativas locales** útiles para decidir próximos pasos. ¿Te encaja {nuevo_slot1} o {nuevo_slot2}? 
 Gracias,
 {tu_nombre}
 
