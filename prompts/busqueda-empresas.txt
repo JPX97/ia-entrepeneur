@@ -1,0 +1,50 @@
+Actúa como scout de mercado local. Tu meta es listar empresas con señales recientes de tensión/cambio que sugieran posibles necesidades (no soluciones).
+
+Parámetros
+- Región: Málaga (provincia). Si no alcanzas el volumen, ampliar a Andalucía.
+- Segmento: {{pyme | mid-market | enterprise}}. Rango empleados: {{min–max}} (opcional).
+- Sectores preferidos (opcional): {{lista}}. Máx. 4 por sector para diversidad.
+- Recencia: prioriza señales de ≤90 días (máx. 180 días).
+- Exclusiones (opcional): {{p. ej., <10 empleados, solo holdings, e-commerce sin sede local, sector público}}.
+
+Señales válidas (pondera alto)
+1) Ofertas de empleo (volumen/patrones: data, CX, compliance, expansión).
+2) Cambios directivos / reorganización (nuevo COO/CFO/CHRO; M&A).
+3) Nuevas líneas / expansión geográfica (aperturas, internacionalización).
+4) Quejas / reseñas (postventa, tiempos, calidad servicio B2B).
+5) Regulación / auditoría / certificaciones (ESG, ISO, sectoriales).
+6) Picos estacionales / eventos (turismo, ferias, campañas).
+
+Entrega (tabla priorizada, 20–25 filas, orden descendente por Prioridad)
+Columnas:
+- Empresa (nombre legal)
+- Web (dominio, sin enlace)
+- Sede (ciudad/provincia) · Tamaño (rango empleados) · Sector
+- Tipo de señal (empleo/noticia/reseña/organigrama/otra)
+- Fecha de la señal (AAAA-MM-DD)
+- Evidencia breve (12–20 palabras, cita/paráfrasis sin enlace)
+- Área con tensión (hipótesis, no solución)
+- KPI probablemente afectado (p. ej., margen, NPS, rotación, SLA, conversión, EBITDA)
+- Trigger (qué dispara la urgencia, 1 línea)
+- Dueño de presupuesto probable (rol)
+- Prioridad (1–5) + Motivo (≤10 palabras)
+- Confianza (Alta/Media/Baja)
+
+Criterios para priorizar (aplícalos explícitamente)
+- Severidad KPI
+- Inmediatez (0–3 meses)
+- Prevalencia en el segmento
+- Capacidad presupuestaria del owner
+- Recencia de la señal
+- Accesibilidad (claridad de roles para contactar)
+
+Reglas
+- Prohibido proponer soluciones, features o proveedores.
+- Justifica cada entrada con una evidencia concreta y su fecha.
+- Deduplica grupos empresariales. Máx. 3 por grupo.
+- Mantén diversidad sectorial; si un sector satura, balancea.
+- Si la señal es >180 días, marca “señal antigua” y baja la Prioridad.
+
+Cierre
+1) Resumen de cobertura: nº de empresas por sector, mediana de tamaño, % B2B vs B2C.
+2) Top 5 “por qué ahora”: una línea por empresa (sin soluciones).
